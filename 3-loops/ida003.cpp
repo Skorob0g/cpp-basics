@@ -9,7 +9,9 @@ int main(){
 	const long NMAX = 1000000000000;
 	cout << "Write x1, x2, dx, eps ";
 	cin >> x1 >> x2 >> dx >> eps;
-	cout <<endl << string(51, '-') << endl << "|"  << setw(13) << "X|" << setw(13) << "arctg(x)|" << setw(11) << "n|" << setw(13) << "P-d arctg(x)|" << endl << string(51, '-') << endl;
+	cout << endl << string(51, '-') << endl << "|";
+	cout << setw(13) << "X|" << setw(13) << "arctg(x)|" << setw(11) << "n|";
+	cout << setw(13) << "P-d arctg(x)|" << endl << string(51, '-') << endl;
 	int k;
 
 	for(double x = x1; x < x2; x += dx){ 
@@ -25,7 +27,8 @@ int main(){
 				return 1;
 			}
 		}
-		cout << "|" <<setw(12) << fixed << x << "|" << setw(12) <<fixed << a1 << "|" << setw(10) << k << "|" << setw(12) << fixed << atan(x) << "|" << endl;
+		cout << "|" << setw(12) << fixed << x << "|" << setw(12) << fixed << a1;
+		cout << "|" << setw(10) << k << "|" << setw(12) << fixed << atan(x) << "|" << endl;
 	} 
 	cout << string(51, '-') << endl;
 	return 0;

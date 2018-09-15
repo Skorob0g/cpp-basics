@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <string>
 using namespace std;
 
 int main(){
@@ -9,7 +10,7 @@ int main(){
 	cin >> a >> b >> c;
 	cout << "Write x(beg), x(end), dx ";
 	cin >> x1 >> x2 >> dx;
-	cout << "-------------------------" << endl << setw(10) << "X" << setw(10) << "F" << endl << "-------------------------" << endl;
+	cout << string(25, '-') << endl << setw(10) << "X" << setw(10) << "F" << endl << string(25, '-') << endl;
 
 	for (double x = x1; x < x2; x += dx){
 		if ((a < 0) & (x != 0))

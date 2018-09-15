@@ -25,10 +25,9 @@ int main(){
 	double x1, x2, dx;
 	long double a1, a2, eps;
 	const long NMAX = 1000000000000;
-	const string LINE = "----------------------------------------";
 	cout << "Write x1, x2, dx, eps ";
 	cin >> x1 >> x2 >> dx >> eps;
-	cout <<endl << LINE<< endl << "|"  << setw(13) << "X|" << setw(13) << "arctg(x)|" << setw(13) << "P-d arctg(x)|" << endl << LINE << endl;
+	cout <<endl << string(40, '-') << endl << "|"  << setw(13) << "X|" << setw(13) << "arctg(x)|" << setw(13) << "P-d arctg(x)|" << endl << string(40, '-') << endl;
 	int k;
 
 	for(double x = x1; x < x2; x += dx){ 
@@ -36,6 +35,6 @@ int main(){
 
 		cout << "|" <<setw(12) << fixed << x << "|" << setw(12) << fixed <<  a1 << "|" << setw(12) << fixed << atan(x) << "|" << endl;
 	} 
-	cout << LINE << endl;
+	cout << string(40, '-') << endl;
 	return 0;
 }

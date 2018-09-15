@@ -25,7 +25,7 @@ int main(){
 				return 1;
 			}
 		}
-		cout << "|" <<setw(12) <<  x << "|" << setw(12) << a1 << "|" << setw(10) << k << "|" << setw(12) << atan(x) << "|" << endl;
+		cout << "|" <<setw(12) << fixed << x << "|" << setw(12) <<fixed << a1 << "|" << setw(10) << k << "|" << setw(12) << fixed << atan(x) << "|" << endl;
 	} 
 	cout << "---------------------------------------------------" << endl;
 	return 0;

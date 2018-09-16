@@ -10,6 +10,7 @@ void alert (double x){
 
 int main(){
 	double a, b, c, x1, x2, dx, f = 0;
+	const long double EXP = 0.000000000001;
 	cout << "Write a, b, c ";
 	cin >> a >> b >> c;
 	cout << "Write x(beg), x(end), dx ";
@@ -17,10 +18,10 @@ int main(){
 	cout << string(25, '-') << endl << setw(10) << "X" << setw(10) << "F" << endl << string(25, '-') << endl;
 
 	for (double x = x1; x < x2; x += dx){
-		if ((a < 0) & (x != 0))
+		if ((a < 0) & (abs(x) > EXP))
 			f = a * pow(x, 2) + pow(b, 2) * x ;
 		else
-			if ((a > 0) & (x == 0))
+			if ((a > 0) & (abs(x) < EXP))
 					if ((x - c) != 0)
 						f = x - (a / (x - c));
 					else{

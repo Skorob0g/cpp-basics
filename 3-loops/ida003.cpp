@@ -1,14 +1,21 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <string>
+
 using namespace std;
 
 int main(){
 	double x1, x2, dx;
 	long double a1, a2, eps;
-	const long NMAX = 1000000000000;
-	cout << "Write x1, x2, dx, eps ";
+	const long long NMAX = 100000000000;
+	const long double EPS = 0.000000001;
+	cout << "in arctg(x), -1 <= x <= 1" << endl << "Write x1, x2, dx, eps ";
 	cin >> x1 >> x2 >> dx >> eps;
+	if ((abs(dx) < EPS) || (abs(x1) > 1) || (abs(x2) > 1)){
+		cout << "wrong input" << endl;
+		return 2;
+	}
 	cout << endl << string(51, '-') << endl << "|";
 	cout << setw(13) << "X|" << setw(13) << "arctg(x)|" << setw(11) << "n|";
 	cout << setw(13) << "P-d arctg(x)|" << endl << string(51, '-') << endl;

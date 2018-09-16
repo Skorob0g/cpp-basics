@@ -10,7 +10,7 @@ long double mcalc(double x, long double a2, long n){
 }
 
 long double my_arctg(double x, long double eps){
-	const long NMAX = 1000000000000;
+	const long long NMAX = 1000000000000;
 	long double a2 = x, a1;
 	for(long n = 1; n < NMAX; n++){
 		a1 = mcalc(x, a2, n);
@@ -22,10 +22,15 @@ long double my_arctg(double x, long double eps){
 }
 
 int main(){
+	const long double EPS = 0.0000000001;
 	double x1, x2, dx;
 	long double a1, a2, eps;
 	const long NMAX = 1000000000000;
-	cout << "Write x1, x2, dx, eps ";
+	cout << "in arctg(x), -1 <= x <= 1" << endl <<"Write x1, x2, dx, eps ";
+	if ((abs(dx) EPS) || (abs(x1) > 1) || (abs(x2) > 1)){
+        cout << "wrong input" << endl;                                                                                  
+		return 2;
+	}   
 	cin >> x1 >> x2 >> dx >> eps;
 	cout << endl << string(40, '-') << endl << "|";
 	cout << setw(13) << "X|" << setw(13) << "arctg(x)|" << setw(13) << "P-d arctg(x)|";

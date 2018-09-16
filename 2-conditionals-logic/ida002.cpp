@@ -4,6 +4,10 @@
 #include <string>
 using namespace std;
 
+void alert (double x){
+	cout << "|" << setw(10) << x <<"|" << setw(10) <<  "/ 0" << "|" << endl;
+}
+
 int main(){
 	double a, b, c, x1, x2, dx, f = 0;
 	cout << "Write a, b, c ";
@@ -17,15 +21,24 @@ int main(){
 			f = a * pow(x, 2) + pow(b, 2) * x ;
 		else
 			if ((a > 0) & (x == 0))
-				f = x - (a / (x - c));
+					if ((x - c) != 0)
+						f = x - (a / (x - c));
+					else{
+						alert(x);
+						continue;
+					}
 			else
-				f = 1 + (x / c);
+				if (c != 0)
+					f = 1 + (x / c);
+				else{
+					alert(x);
+					continue;
+				}
 
 		if (!((((int) a) | ((int) b)) & (((int) b) | ((int) c))))
-			cout << "|" << setw(10) << x <<"|" << setw(10) <<  f << "|" << endl;
+			cout << "|" << setw(10) << fixed << x <<"|" << setw(10) << fixed << f << "|" << endl;
 		else
-			cout << "| " << setw(10) << x <<"|" << setw(10) << (int) f << "|" << endl;
-		f = 0;
+			cout << "| " << setw(10) << fixed << x <<"|" << setw(10) << (int) f << "|" << endl;
 	}
 
 	return 0;

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-long double mcalc(double x, long double a2, long n){
+long double mcalc(double x, long double a2, long long n){
 	return pow((-1), n) * pow(x, (2 * n + 1)) / (2 * n + 1) + a2;
 }
 
@@ -26,12 +26,12 @@ int main(){
 	double x1, x2, dx;
 	long double a1, a2, eps;
 	const long NMAX = 1000000000000;
-	cout << "in arctg(x), -1 <= x <= 1" << endl <<"Write x1, x2, dx, eps ";
-	if ((abs(dx) EPS) || (abs(x1) > 1) || (abs(x2) > 1)){
-        cout << "wrong input" << endl;                                                                                  
-		return 2;
-	}   
+	cout << "in arctg(x), -1 <= x <= 1" << endl <<"Write x1, x2, dx, eps ";   
 	cin >> x1 >> x2 >> dx >> eps;
+	if ((abs(dx) < EPS) || (abs(x1) > 1) || (abs(x2) > 1)){
+        cout << "wrong input" << endl;
+        return 2;
+    }
 	cout << endl << string(40, '-') << endl << "|";
 	cout << setw(13) << "X|" << setw(13) << "arctg(x)|" << setw(13) << "P-d arctg(x)|";
 	cout << endl << string(40, '-') << endl;

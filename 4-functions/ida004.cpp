@@ -12,7 +12,7 @@ long double mcalc(double x, long double a2, long n){
 long double my_arctg(double x, long double eps){
 	const long long NMAX = 1000000000000;
 	long double a2 = x, a1;
-	for(long n = 1; n < NMAX; n++){
+	for(long long n = 1; n < NMAX; n++){
 		a1 = mcalc(x, a2, n);
 		if (abs(abs(a1) - abs(a2)) < eps)
 			return a1;

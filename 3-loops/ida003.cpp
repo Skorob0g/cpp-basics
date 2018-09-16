@@ -23,7 +23,7 @@ int main(){
 
 	for(double x = x1; x < x2; x += dx){ 
 		a2 = x; 
-		for(long n = 1; n < NMAX; n++){
+		for(long long n = 1; n < NMAX; n++){
 			k = n;
 			a1 = pow((-1), n) * pow(x, (2 * n + 1)) / (2 * n + 1) + a2;
 			if(abs(abs(a1) - abs(a2)) < eps)

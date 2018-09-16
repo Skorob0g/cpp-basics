@@ -24,8 +24,8 @@ long double my_arctg(double x, long double eps){
 int main(){
 	const long double EPS = 0.0000000001;
 	double x1, x2, dx;
-	long double a1, a2, eps;
-	const long NMAX = 1000000000000;
+	long double a1, eps;
+	const long long NMAX = 1000000000000;
 	cout << "in arctg(x), -1 <= x <= 1" << endl <<"Write x1, x2, dx, eps ";   
 	cin >> x1 >> x2 >> dx >> eps;
 	if ((abs(dx) < EPS) || (abs(x1) > 1) || (abs(x2) > 1)){
@@ -35,7 +35,6 @@ int main(){
 	cout << endl << string(40, '-') << endl << "|";
 	cout << setw(13) << "X|" << setw(13) << "arctg(x)|" << setw(13) << "P-d arctg(x)|";
 	cout << endl << string(40, '-') << endl;
-	int k;
 
 	for(double x = x1; x < x2; x += dx){ 
 		a1 = my_arctg(x, eps);

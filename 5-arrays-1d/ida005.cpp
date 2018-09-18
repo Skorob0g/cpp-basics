@@ -14,8 +14,12 @@ void badsort(double * a, int n){
 int main(){
 	int n, iabsmax = 0;
 	bool pos1 = false, pos2 = false;
-	cout << "Write n ";
+	cout << "Write n, n > 0 ";
 	cin >> n;
+	if (n <= 0){
+		cout << "error, n <= 0" << endl;
+		return 1;
+	}
 	double *a = new double[n], absmax, sum = 0;
 	cout << "input the array ";
 	cin >> a[0];
@@ -41,8 +45,11 @@ int main(){
 			}
 
 	}
+	
+	for (int j = 0; j < n; j++)
+		cout << a[j] << " | ";
 
-	cout << "Abs max = " << absmax << endl;
+	cout << endl << "Abs max = a[" << iabsmax << "] = " << absmax << endl;
 
 	if (pos1 && pos2)
 		cout << "sum = " << sum << endl;

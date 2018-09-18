@@ -1,14 +1,8 @@
 #include <iostream>
+#include <cmath>
 #define EPS 0.00000001
 
 using namespace std;
-
-double fabs(double a){
-	if (a < EPS)
-		return -1 * a;
-	else
-		return a;
-}
 
 void badsort(double * a, int n){
 	for (int j = 0; j < n; j++)

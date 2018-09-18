@@ -1,5 +1,7 @@
 #include <iostream>
 #include <iomanip>
+#include <fstream>
+#include <string>
 #include <cmath>
 #define N 10
 
@@ -7,11 +9,36 @@ using namespace std;
 
 int main(){
 	double a[N][N], b[N][N];
-	cout << "Write a matrix 10 x 10" << endl;
+	int q;
+	cout << "Choose input: (1 - file, 2 - long one) ";
+	cin >> q;
+	if (q == 1){
+		string s;
+		cout << "Write file name ";
+		cin >> s;
+		ifstream fin(s);
+		if (!fin.is_open()){
+			cout << "can't open file" << endl;
+			return 1;
+		}
 
-	for (int j = 0; j < N; j++)
-		for(int i = 0; i < N; i++)
-			cin >> a[i][j];
+		for (int j = 0; j < N; j++)
+	        for(int i = 0; i < N; i++)
+		        fin >> a[i][j];
+
+	}
+	else
+		if (q == 2){
+			cout << "Write a matrix 10 x 10" << endl;
+
+			for (int j = 0; j < N; j++)
+				for(int i = 0; i < N; i++)
+					cin >> a[i][j];
+		}
+		else{
+			cout << "wrong q!" << endl;
+			return 2;
+		}
 
 	double sum = 0, sumabs = 0;
 	int k = 0;

@@ -26,6 +26,7 @@ int main(){
 	        for(int i = 0; i < N; i++)
 		        fin >> a[i][j];
 
+		fin.close();
 	}
 	else
 		if (q == 2){

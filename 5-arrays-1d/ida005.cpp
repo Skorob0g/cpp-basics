@@ -48,18 +48,19 @@ int main(){
 
 	}
 
-	badsort(a, n);
-
-	for (int i = 0; i < n; i++)
-		cout << a[i] << " ";
-
-	cout << endl << "Abs max = " << a[iabsmax] << endl;
-	// first task done!
+	cout << "Abs max = " << absmax << endl;
 
 	if (pos1 && pos2)
 		cout << "sum = " << sum << endl;
 	else
 		cout << "there are no 2 positive elements" << endl; 
-	// second task done!
+
+	
+    badsort(a, n);
+
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
+
+	cout << endl;
 	return 0;
 }

@@ -22,7 +22,7 @@ int main(){
 	bool pos1 = false, pos2 = false;
 	cout << "Write n ";
 	cin >> n;
-	double a[n], absmax, sum = 0;
+	double *a = new double[n], absmax, sum = 0;
 	cout << "input the array ";
 	cin >> a[0];
 	absmax = fabs(a[0]);

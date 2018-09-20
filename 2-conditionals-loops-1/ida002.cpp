@@ -15,6 +15,7 @@ int main(){
 	cin >> a >> b >> c;
 	cout << "Write x(beg), x(end), dx ";
 	cin >> x1 >> x2 >> dx;
+	cout << fixed;
 	cout << string(25, '-') << endl << setw(10) << "X" << setw(10) << "F" << endl << string(25, '-') << endl;
 
 	for (double x = x1; x < x2; x += dx){
@@ -37,9 +38,9 @@ int main(){
 				}
 
 		if (!((((int) a) | ((int) b)) & (((int) b) | ((int) c))))
-			cout << "|" << setw(10) << fixed << x <<"|" << setw(10) << fixed << f << "|" << endl;
+			cout << "|" << setw(10) << x <<"|" << setw(10) << f << "|" << endl;
 		else
-			cout << "| " << setw(10) << fixed << x <<"|" << setw(10) << (int) f << "|" << endl;
+			cout << "| " << setw(10) << x <<"|" << setw(10) << (int) f << "|" << endl;
 	}
 
 	return 0;

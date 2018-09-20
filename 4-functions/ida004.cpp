@@ -26,6 +26,7 @@ int main(){
 	double x1, x2, dx;
 	long double a1, eps;
 	const long long NMAX = 1000000000000;
+	cout << fixed;
 	cout << "in arctg(x), -1 <= x <= 1" << endl <<"Write x1, x2, dx, eps ";   
 	cin >> x1 >> x2 >> dx >> eps;
 	if ((abs(dx) < EPS) || (abs(x1) > 1) || (abs(x2) > 1)){
@@ -39,8 +40,8 @@ int main(){
 	for(double x = x1; x < x2; x += dx){ 
 		a1 = my_arctg(x, eps);
 
-		cout << "|" <<setw(12) << fixed << x << "|";
-		cout << setw(12) << fixed <<  a1 << "|" << setw(12) << fixed << atan(x) << "|" << endl;
+		cout << "|" <<setw(12) << x << "|";
+		cout << setw(12) << a1 << "|" << setw(12) << atan(x) << "|" << endl;
 	} 
 	cout << string(40, '-') << endl;
 	return 0;

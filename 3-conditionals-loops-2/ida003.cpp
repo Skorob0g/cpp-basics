@@ -2,7 +2,6 @@
 #include <cmath>
 #include <iomanip>
 #include <string>
-
 using namespace std;
 
 int main(){
@@ -10,6 +9,7 @@ int main(){
 	long double a1, a2, eps;
 	const long long NMAX = 100000000000;
 	const long double EPS = 0.000000001;
+	cout << fixed;
 	cout << "in arctg(x), -1 <= x <= 1" << endl << "Write x1, x2, dx, eps ";
 	cin >> x1 >> x2 >> dx >> eps;
 	if ((abs(dx) < EPS) || (abs(x1) > 1) || (abs(x2) > 1)){
@@ -34,8 +34,8 @@ int main(){
 				return 1;
 			}
 		}
-		cout << "|" << setw(12) << fixed << x << "|" << setw(12) << fixed << a1;
-		cout << "|" << setw(10) << k << "|" << setw(12) << fixed << atan(x) << "|" << endl;
+		cout << "|" << setw(12) << x << "|" << setw(12) << a1;
+		cout << "|" << setw(10) << k << "|" << setw(12) << atan(x) << "|" << endl;
 	} 
 	cout << string(51, '-') << endl;
 	return 0;

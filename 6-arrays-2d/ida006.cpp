@@ -44,7 +44,7 @@ int main(){
 	double sum = 0, sumabs = 0;
 	int k = 0;
 
-	for (int j = 0; j < N; j++){
+	for (unsigned int j = 0; j < N; j++){
 		for (int i = 0; i < N; i++){	//out-of-border check
 			if ((i - 1) >= 0){
 				sum += a[i - 1][j];

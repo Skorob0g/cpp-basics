@@ -15,10 +15,9 @@ int main() {
 	}
 
 	int n, k = 0;
-	cout << "write quantity of words ";
+	cout << "write the number of words ";
 	cin >> n;
 
-	bool fileEndFlag = false;
 	while(getline(fin, s, '.')){
 		for (unsigned int i = 1; i < s.length(); i++){
 			if (s[i] == ' ')

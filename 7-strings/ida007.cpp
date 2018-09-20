@@ -20,7 +20,7 @@ int main() {
 
 	bool fileEndFlag = false;
 	while(getline(fin, s, '.')){
-		for (int i = 1; i < s.length(); i++){
+		for (unsigned int i = 1; i < s.length(); i++){
 			if (s[i] == ' ')
 				k++;
 		}

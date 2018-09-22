@@ -12,8 +12,10 @@ struct train{
 };
 
 void inputTrain(train *a){
-	for (int i = 0; i < N; i++)
-        cin >> a[i].dest >> a[i].number >> a[i].time;
+	for (int i = 0; i < N; i++){
+		getline(cin, a[i].dest, ';');
+		cin >> a[i].number >> a[i].time;
+	}
 }
 
 void sortTrain(train *a){
@@ -50,7 +52,7 @@ void infinite(train *a){
 
 int main(){
 	train a[N], buff;
-	cout << "write destination, number, leaving time " << endl;
+	cout << "write destination;(you have to use \";\") number, leaving time " << endl;
 	inputTrain(a);
 	sortTrain(a);
 	cout << endl;

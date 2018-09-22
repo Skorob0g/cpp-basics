@@ -11,34 +11,49 @@ struct train{
 	string time;
 };
 
+void inputTrain(train *a){
+	for (int i = 0; i < N; i++)
+        cin >> a[i].dest >> a[i].number >> a[i].time;
+}
+
+void sortTrain(train *a){
+	for (int i = 0; i < N - 1; i++)
+		for (int j = 0; j < N -i -1; j++)
+			if (a[j].number > a[j + 1].number)
+                swap(a[j], a[j + 1]);
+}
+
+void searchTrain(train *a, int num){
+	for (int i = 0; i < N; i++){
+		if (num == a[i].number){
+			cout << "destanation: "<< a[i].dest << endl;
+			cout << "train number: "<< a[i].number << endl;
+			cout << "departure time: "<< a[i].time << endl;
+			break;
+		}
+		if (i == N -1)
+			cout << "no such train" << endl;
+	}
+}
+
+void infinite(train *a){
+	int num;
+	cout << "write the train number (to quit wite -1)" << endl;
+	bool endFlag = false;
+	while(!endFlag){
+		cin >> num;
+		if (num == -1)
+			break;
+		searchTrain(a, num);
+	}
+}
+
 int main(){
 	train a[N], buff;
 	cout << "write destination, number, leaving time " << endl;
-	for (int c = 0; c < N; c++)
-		cin >> a[c].dest >> a[c].number >> a[c].time;
-
-	for (int i = 0; i < N - 1; i++){
-		for (int j = 0; j < N - 1; j++){
-			if (a[j].number > a[j + 1].number){
-				buff = a[j];
-				a[j] = a[j + 1];
-				a[j + 1] = buff;
-			}
-		}
-	}
-
+	inputTrain(a);
+	sortTrain(a);
 	cout << endl;
-	unsigned int num;
-    cout << "write the number of the train ";
-    cin >> num;
-	for (int k = 0; k < N; k++){
-		if (num == a[k].number){
-			cout << a[k].dest << " | " << a[k].number << " | " << a[k].time << endl;
-			break;
-		}
-		if (k == N -1)
-			cout << "no such train" << endl;
-	}
-
+	infinite(a);
 	return 0;
 }

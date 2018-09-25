@@ -66,11 +66,11 @@ int main(){
 			cout << setw(5) << fixed << b[i][j] << "|";
 
 			if (j > i)
-				sumabs += fabs(a[i][j]);
+				sumabs += fabs(b[i][j]);
 		}
 		cout << endl;
 	}
 
-	cout << "sum os abs = " << sumabs << endl;
+	cout << "sum of abs = " << sumabs << endl;
 	return 0;
 }

@@ -42,44 +42,27 @@ int main(){
 		}
 
 	double sum = 0, sumabs = 0;
-	int k = 0;
+	int s = 0;
 
 	for (int j = 0; j < N; j++){
 		for (int i = 0; i < N; i++){	//out-of-border check
-			if ((i - 1) >= 0){
-				sum += a[i - 1][j];
-				k++;
+
+			for (int k = -1; k <= 1; k++){
+				for (int l = -1; l <= 1; l++){
+					if ((i + k) >= 0 && (i + k) < N &&
+						(j + l) >= 0 && (j + l) < N &&
+						(k != 0 || l != 0))
+					{
+						sum += a[i + k][j + l];
+						s++;
+					}				
+				}
 			}
-			if ((i + 1) < N){
-				sum += a[i + 1][j];
-				k++;
-			}
-			if ((j - 1) >= 0){
-				sum += a[i][j - 1];
-				k++;
-			}
-			if ((j + 1) < N){
-				sum += a[i][j + 1];
-				k++;
-			}
-			if (((i - 1) >= 0) && ((j - 1) >= 0)){
-				sum += a[i - 1][j - 1];
-				k++;
-			}
-			if (((i + 1) < N) && ((j - 1) >= 0)){
-				sum += a[i + 1][j - 1];
-				k++;
-			}
-			if (((i + 1) < N) && ((j + 1) < N)){
-				sum += a[i + 1][j + 1];
-				k++;
-			}
-			if (((i - 1) >= 0) && ((j + 1) < N)){
-				sum += a[i - 1][j + 1];
-				k++;
-			}
-			b[i][j] = sum / k;
-			sum = k = 0;
+
+
+
+			b[i][j] = sum / s;
+			sum = s = 0;
 			cout << setw(5) << fixed << b[i][j] << "|";
 
 			if (j > i)

@@ -13,12 +13,12 @@ struct train{
 void inputTrain(train *a){
 	for (int i = 0; i < N; i++){
 		cout << "destanation: ";
-		cin.ignore();
 		getline(cin, a[i].dest);
 		cout << "number: ";
 		cin >> a[i].number;
 		cout << "departure time: ";
 		cin >> a[i].time;
+		cin.ignore();
 	}
 }
 

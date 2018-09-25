@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <string>
 #define N 8
 
@@ -13,16 +12,28 @@ struct train{
 
 void inputTrain(train *a){
 	for (int i = 0; i < N; i++){
-		getline(cin, a[i].dest, ';');
-		cin >> a[i].number >> a[i].time;
+		cout << "destanation: ";
+		cin.ignore();
+		getline(cin, a[i].dest);
+		cout << "number: ";
+		cin >> a[i].number;
+		cout << "departure time: ";
+		cin >> a[i].time;
 	}
 }
 
 void sortTrain(train *a){
-	for (int i = 0; i < N - 1; i++)
+	bool swaped;
+	for (int i = 0; i < N - 1; i++){
+		swaped = false;
 		for (int j = 0; j < N -i -1; j++)
-			if (a[j].number > a[j + 1].number)
+			if (a[j].number > a[j + 1].number){
                 swap(a[j], a[j + 1]);
+				swaped = true;
+			}
+		if (!swaped)
+			break;
+	}
 }
 
 void searchTrain(train *a, int num){
@@ -40,9 +51,8 @@ void searchTrain(train *a, int num){
 
 void infinite(train *a){
 	int num;
-	cout << "write the train number (to quit wite -1)" << endl;
-	bool endFlag = false;
-	while(!endFlag){
+	cout << "write the train number (to quit write -1)" << endl;
+	while(1){
 		cin >> num;
 		if (num == -1)
 			break;
@@ -51,8 +61,7 @@ void infinite(train *a){
 }
 
 int main(){
-	train a[N], buff;
-	cout << "write destination;(you have to use \";\") number, leaving time " << endl;
+	train a[N];
 	inputTrain(a);
 	sortTrain(a);
 	cout << endl;

@@ -26,7 +26,8 @@ void smooth(type (&a)[N][N], type (&b)[N][N]){
                 }
             }
 		 b[i][j] = sum / s;
-            sum = s = 0;
+            sum = 0;
+			s = 0;
 		}
 	}
 }

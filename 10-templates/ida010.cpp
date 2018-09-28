@@ -40,11 +40,13 @@ void arrinput(type (&a)[N][N], ifstream &fin){
 
 template <class type>
 void arroutput(type (&a)[N][N]){
+	cout << fixed;
 	for (int j = 0; j < N; j++){
 		for (int i = 0; i < N; i++)
-			cout << fixed << a[i][j] << " ";
+			cout << a[i][j] << " ";
 	cout << endl;
 	}
+	cout << defaultfloat;
 }
 
 int main(){
@@ -61,38 +63,38 @@ int main(){
 			continue;
 		}   
 
-		while(1){
-			cout << "choose type: (0 - double, 1 - float, 2 - int) (to quit write \"-1\") ";
-			cin >> ans;
+		link:
+		cout << "choose type: (0 - double, 1 - float, 2 - int) (to quit write \"-1\") ";
+		cin >> ans;
 
-			if (ans == -1)
-				break;
+		if (ans == -1)
+			continue;
 
-			if (ans == 0){
-				double a[N][N], b[N][N];
+		if (ans == 0){
+			double a[N][N], b[N][N];
+			arrinput(a, fin);
+			smooth(a, b);
+			arroutput(b);
+		}
+		else
+			if (ans == 1){
+				float a[N][N], b[N][N];
 				arrinput(a, fin);
 				smooth(a, b);
 				arroutput(b);
 			}
 			else
-				if (ans == 1){
-					float a[N][N], b[N][N];
+				if (ans == 2){
+					int a[N][N], b[N][N];
 					arrinput(a, fin);
 					smooth(a, b);
 					arroutput(b);
 				}
-				else
-					if (ans == 2){
-						int a[N][N], b[N][N];
-						arrinput(a, fin);
-						smooth(a, b);
-						arroutput(b);
-					}
-					else{
-						cout << "wrong type" << endl;
-						continue;
-					}
-		}
+				else{
+					cout << "wrong type" << endl;
+					goto link;
+					continue;
+				}
 
 		fin.close();
 	}

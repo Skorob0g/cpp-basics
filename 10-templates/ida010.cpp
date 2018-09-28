@@ -62,33 +62,38 @@ int main(){
 			continue;
 		}   
 
-		cout << "choose type: (0 - double, 1 - float, 2 - int) ";
-		cin >> ans;
+		while(1){
+			cout << "choose type: (0 - double, 1 - float, 2 - int) (to quit write \"-1\") ";
+			cin >> ans;
 
-		if (ans == 0){
-			double a[N][N], b[N][N];
-            arrinput(a, fin);
-            smooth(a, b);
-			arroutput(b);
-		}
-		else
-			if (ans == 1){
-				float a[N][N], b[N][N];
-                arrinput(a, fin);
-                smooth(a, b);
+			if (ans == -1)
+				break;
+
+			if (ans == 0){
+				double a[N][N], b[N][N];
+				arrinput(a, fin);
+				smooth(a, b);
 				arroutput(b);
 			}
 			else
-				if (ans == 2){
-					int a[N][N], b[N][N];
+				if (ans == 1){
+					float a[N][N], b[N][N];
 					arrinput(a, fin);
 					smooth(a, b);
 					arroutput(b);
 				}
-				else{
-					cout << "wrong type" << endl;
-					continue;
-				}
+				else
+					if (ans == 2){
+						int a[N][N], b[N][N];
+						arrinput(a, fin);
+						smooth(a, b);
+						arroutput(b);
+					}
+					else{
+						cout << "wrong type" << endl;
+						continue;
+					}
+		}
 
 		fin.close();
 	}

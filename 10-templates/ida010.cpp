@@ -50,7 +50,7 @@ void arroutput(type (&a)[N][N]){
 }
 
 int main(){
-	int ans;
+	char ans;
     string s;
 	while(1){
 		cout << "Write file name (to quit write \".\") ";
@@ -64,27 +64,27 @@ int main(){
 		}   
 
 		link:
-		cout << "choose type: (0 - double, 1 - float, 2 - int) (to quit write \"-1\") ";
+		cout << "choose type: (0 - double, 1 - float, 2 - int) (to quit write \".\") ";
 		cin >> ans;
 
-		if (ans == -1)
+		if (ans == '.')
 			continue;
 
-		if (ans == 0){
+		if (ans == '0'){
 			double a[N][N], b[N][N];
 			arrinput(a, fin);
 			smooth(a, b);
 			arroutput(b);
 		}
 		else
-			if (ans == 1){
+			if (ans == '1'){
 				float a[N][N], b[N][N];
 				arrinput(a, fin);
 				smooth(a, b);
 				arroutput(b);
 			}
 			else
-				if (ans == 2){
+				if (ans == '2'){
 					int a[N][N], b[N][N];
 					arrinput(a, fin);
 					smooth(a, b);
@@ -93,7 +93,6 @@ int main(){
 				else{
 					cout << "wrong type" << endl;
 					goto link;
-					continue;
 				}
 
 		fin.close();

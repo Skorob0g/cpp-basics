@@ -6,29 +6,36 @@ using namespace std;
 
 int main() {
 	cout << "write file name ";
-	string filename, s;
+	string filename, s = "";
 	cin >> filename;
 	ifstream fin(filename);
 	if (!fin.is_open()){
 		cout << "can't open file!" << endl;
 		return 1;
 	}
-
+	char a;
 	int n, k = 0;
 	cout << "write the number of words ";
 	cin >> n;
-
-	while(getline(fin, s, '.')){
-		for (unsigned int i = 1; i < s.length(); i++){
-			if (s[i] == ' ')
-				k++;
+	while(fin.get(a)){	
+		s += a;
+		if (a == ' '){
+			k++;
 		}
 
-		if (k == (n - 1))
-			cout << s << endl;
-		k = 0;
+		if ((a == '.')||(a == '?')||(a == '!')){
+			if (k == (n - 1))
+				cout << s << endl;
+				fin.get(a); //avoiding first space in sentence
+			k = 0;
+			s = "";
+		}
 	}
 
+	if (!fin.eof()){
+		cout << "error: EoF unreached" << endl;
+		return 2;
+	}
 	fin.close();
 	return 0;
 }

@@ -18,8 +18,11 @@ int main() {
 	cout << "write the number of words ";
 	cin >> n;
 	while(fin.get(a)){	
-		s += a;
-		if (a == ' '){
+		if (a == '\n')
+			s += ' ';
+		else
+			s += a;
+		if ((a == ' ') || (a == '\n')){
 			k++;
 		}
 
